@@ -87,3 +87,36 @@ button:hover {
   line-height: 1.6;
   border-left: 6px solid #339af0;
 }
+
+
+/* Responsivo para telas pequenas */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input, select, button {
+    font-size: 1.05rem;
+    padding: 14px;
+  }
+
+  button {
+    margin-top: 16px;
+  }
+
+  #comprovante {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+/* Fundo com imagem */
+body {
+  background: url('blurry_background.png') no-repeat center center fixed;
+  background-size: cover;
+}
