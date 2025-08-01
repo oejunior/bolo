@@ -117,6 +117,10 @@ button:hover {
 
 /* Fundo com imagem */
 body {
-  background: url('blurry_background.png') no-repeat center center fixed;
+  body {
+  background: linear-gradient(135deg, #fcd9c4, #d5ecd4);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-size: cover;
+}
 }
