@@ -1,79 +1,59 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bolos da Docce</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <img src="logo.png" alt="Logo Docce" class="logo-docce">
-<h1>Bolos da Docce</h1>
-  <div class="tabs">
-    <button class="tab-button active" onclick="openTab(event, 'cliente')">Cliente</button>
-    <button class="tab-button" onclick="openTab(event, 'entrega')">Entrega</button>
-    <button class="tab-button" onclick="openTab(event, 'bolo')">Bolo</button>
-    <button class="tab-button" onclick="openTab(event, 'pagamento')">Pagamento</button>
-  </div>
-  <form id="pedidoForm">
-    <div id="cliente" class="tab-content active">
-      <label for="nome">Nome do cliente:</label>
-      <input type="text" id="nome" name="nome" required>
-      <label for="telefone">Telefone:</label>
-      <input type="tel" id="telefone" name="telefone" required>
-    </div>
-    <div id="entrega" class="tab-content">
-      <label for="tipo">Tipo de pedido:</label>
-      <select id="tipo" name="tipo" required>
-        <option value="retirada">Retirada</option>
-        <option value="delivery">Delivery</option>
+  <div class="container">
+    <img src="logo.png" alt="Logo Docce" class="logo">
+    <h1>Bolos da Docce</h1>
+    <form id="pedidoForm">
+      <h2>Dados do Cliente</h2>
+      <input type="text" placeholder="Nome do Cliente" id="nomeCliente" required>
+      <input type="tel" placeholder="Telefone" id="telefoneCliente" required>
+
+      <h2>Tipo de Entrega</h2>
+      <select id="tipoEntrega" onchange="toggleEndereco()">
+        <option value="Retirada">Retirada</option>
+        <option value="Delivery">Delivery</option>
       </select>
-      <div id="deliveryFields" class="oculto">
-        <label for="endereco">Rua:</label>
-        <input type="text" id="endereco" name="endereco">
-        <label for="numero">Número:</label>
-        <input type="text" id="numero" name="numero">
-        <label for="bairro">Bairro:</label>
-        <input type="text" id="bairro" name="bairro">
-        <label for="observacoes">Observações:</label>
-        <input type="text" id="observacoes" name="observacoes" placeholder="Opcional">
-        <label for="valorEntrega">Valor da entrega:</label>
-        <select id="valorEntrega" name="valorEntrega">
-          <option value="7">R$7,00</option>
-          <option value="8">R$8,00</option>
-          <option value="9">R$9,00</option>
-          <option value="10">R$10,00</option>
-          <option value="11">R$11,00</option>
-          <option value="12">R$12,00</option>
-          <option value="13">R$13,00</option>
-          <option value="14">R$14,00</option>
-          <option value="15">R$15,00</option>
+
+      <div id="enderecoCampos" style="display: none;">
+        <input type="text" placeholder="Endereço" id="endereco">
+        <input type="text" placeholder="Número" id="numero">
+        <input type="text" placeholder="Bairro" id="bairro">
+        <input type="text" placeholder="Observação" id="observacao">
+        <select id="taxaEntrega">
+          <option value="">Selecione a taxa de entrega</option>
+          <option>7</option><option>8</option><option>9</option><option>10</option>
+          <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
         </select>
       </div>
-      <label for="dataPedido">Data do pedido:</label>
-      <input type="date" id="dataPedido" name="dataPedido" required>
-      <label for="horaPedido">Horário:</label>
-      <input type="text" id="horaPedido" name="horaPedido" placeholder="Ex: 10h, Tarde etc." required>
-    </div>
-    <div id="bolo" class="tab-content">
-      <label for="tamanho">Tamanho do bolo:</label>
-      <select id="tamanho" name="tamanho" required>
-        <option value="mini">Mini</option>
-        <option value="pequeno">Pequeno</option>
-        <option value="médio">Médio</option>
-        <option value="grande">Grande</option>
+
+      <h2>Data e Hora</h2>
+      <input type="text" placeholder="Data e período (ex: 12/08 Segunda - Tarde)" id="dataHora" required>
+
+      <h2>Escolha do Bolo</h2>
+      <select id="bolo" required></select>
+      <select id="tamanho" required>
+        <option value="Mini">Mini</option>
+        <option value="P">P</option>
+        <option value="M">M</option>
+        <option value="G">G</option>
       </select>
-      <label for="sabor">Sabor do bolo:</label>
-      <select id="sabor" name="sabor" required></select>
-    </div>
-    <div id="pagamento" class="tab-content">
-      <label for="adiantamento">Adiantamento (R$):</label>
-      <input type="number" id="adiantamento" name="adiantamento" step="0.01" placeholder="Ex: 50.00">
-      <button type="submit">Enviar Pedido</button>
-      <button type="reset">Limpar Formulário</button>
-    </div>
-  </form>
-  <div id="comprovante" style="display:none; margin-top:30px;"></div>
+
+      <h2>Pagamento</h2>
+      <input type="number" placeholder="Valor do adiantamento (opcional)" id="adiantamento" min="0" step="0.01">
+
+      <button type="submit">Gerar Comprovante</button>
+    </form>
+
+    <pre id="comprovante"></pre>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
