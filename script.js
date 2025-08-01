@@ -112,7 +112,9 @@ ${entregaOuRetirada}
 1 - Bolo ${pedido.sabor} ${pedido.tamanho} - R$ ${pedido.precoBolo.toFixed(2).replace('.', ',')}
 ${pedido.valorEntrega > 0 ? `1 - Taxa de Entrega = R$ ${pedido.valorEntrega.toFixed(2).replace('.', ',')}` : ""}
 ==========================
-Total: *R$ ${pedido.total.toFixed(2).replace('.', ',')}*
+Subtotal: R$ ${(pedido.precoBolo + pedido.valorEntrega).toFixed(2).replace('.', ',')}
+Adiantamento: R$ ${pedido.adiantamento.toFixed(2).replace('.', ',')}
+*Total a pagar: R$ ${pedido.total.toFixed(2).replace('.', ',')}*
 ==========================
 
 _Estamos preparando o seu pedido._
