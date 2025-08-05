@@ -133,3 +133,13 @@ function formatarData(dataISO) {
   const [ano, mes, dia] = dataISO.split('-');
   return `${dia}/${mes} ${diaSemana}`;
 }
+
+
+function copiarComprovante() {
+    const comprovanteText = document.getElementById("comprovante").innerText;
+    navigator.clipboard.writeText(comprovanteText).then(() => {
+        alert("Comprovante copiado com sucesso!");
+    }).catch(err => {
+        alert("Erro ao copiar: " + err);
+    });
+}
