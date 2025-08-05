@@ -1,70 +1,76 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bolos da Docce</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Pedido de Bolo</title>
+  <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-  <img src="logo.png" alt="Logo Docce" style="width: 140px; display: block; margin: 20px auto;">
-  <h1 style="text-align: center; color: #444; font-family: 'PT Sans', sans-serif;">Bolos da Docce</h1>
-
-  <label>Nome:</label>
-  <input type="text" id="nome" />
-
-  <label>Telefone:</label>
-  <input type="text" id="telefone" />
-
-  <label>Tipo:</label>
-  <select id="tipo" onchange="mostrarEndereco()">
-    <option value="Retirada">Retirada</option>
-    <option value="Delivery">Delivery</option>
-  </select>
-
-  <div id="enderecoContainer" style="display:none">
-    <label>Rua:</label>
-    <input type="text" id="rua" />
-    <label>Número:</label>
-    <input type="text" id="numero" />
-    <label>Bairro:</label>
-    <input type="text" id="bairro" />
-    <label>Taxa de Entrega:</label>
-    <select id="taxaEntrega">
-      <option value="0">Selecione</option>
-      <option value="7">R$7</option><option value="8">R$8</option>
-      <option value="9">R$9</option><option value="10">R$10</option>
-      <option value="11">R$11</option><option value="12">R$12</option>
-      <option value="13">R$13</option><option value="14">R$14</option>
-      <option value="15">R$15</option>
-    </select>
-  </div>
-
-  <label>Data:</label>
-  <input type="date" id="data" />
-
-  <label>Hora:</label>
-  <input type="time" id="hora" />
-
-  <label>Sabor do bolo:</label>
-  <select id="sabor" onchange="atualizarPreco()">
-    <option value="">Selecione</option>
-    <option value="Brigadeirudo">Brigadeirudo</option>
-  </select>
-
-  <label>Tamanho:</label>
-  <select id="tamanho" onchange="atualizarPreco()">
-    <option value="">Selecione</option>
-    <option value="P">Pequeno</option>
-  </select>
-
-  <label>Adiantamento (opcional):</label>
-  <input type="number" id="adiantamento" value="0"/>
-
-  <button onclick="gerarComprovante()">Gerar Comprovante</button>
-
-  <div id="comprovante"></div>
+  <h1>Fazer Pedido de Bolo</h1>
+  <form id="pedidoForm">
+    <fieldset>
+      <legend>Dados do Cliente</legend>
+      <label for="nome">Nome do cliente:</label>
+      <input type="text" id="nome" name="nome" required><br>
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" required><br>
+    </fieldset>
+    <fieldset>
+      <legend>Tipo de Pedido</legend>
+      <label for="tipo">Tipo de pedido:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="retirada">Retirada</option>
+        <option value="delivery">Delivery</option>
+      </select><br>
+      <div id="deliveryFields" class="oculto">
+        <label for="endereco">Rua:</label>
+        <input type="text" id="endereco" name="endereco"><br>
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" name="numero"><br>
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" name="bairro"><br>
+        <label for="observacoes">Observações:</label>
+        <input type="text" id="observacoes" name="observacoes" placeholder="Opcional"><br>
+        <label for="valorEntrega">Valor da entrega:</label>
+        <select id="valorEntrega" name="valorEntrega">
+          <option value="7">R$7,00</option>
+          <option value="8">R$8,00</option>
+          <option value="9">R$9,00</option>
+          <option value="10">R$10,00</option>
+          <option value="11">R$11,00</option>
+          <option value="12">R$12,00</option>
+          <option value="13">R$13,00</option>
+          <option value="14">R$14,00</option>
+          <option value="15">R$15,00</option>
+        </select><br>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Data e Horário</legend>
+      <label for="dataPedido">Data do pedido:</label>
+      <input type="date" id="dataPedido" name="dataPedido" required><br>
+      <label for="horaPedido">Horário:</label>
+      <input type="text" id="horaPedido" name="horaPedido" placeholder="Ex: Manhã, 10h, Tarde etc." required><br>
+    </fieldset>
+    <fieldset>
+      <legend>Informações do Bolo</legend>
+      <label for="tamanho">Tamanho do bolo:</label>
+      <select id="tamanho" name="tamanho" required>
+        <option value="mini">Mini</option>
+        <option value="pequeno">Pequeno</option>
+        <option value="médio">Médio</option>
+        <option value="grande">Grande</option>
+      </select><br>
+      <label for="sabor">Sabor do bolo:</label>
+      <select id="sabor" name="sabor" required></select><br>
+      <label for="adiantamento">Adiantamento (R$):</label>
+      <input type="number" id="adiantamento" name="adiantamento" step="0.01" placeholder="Ex: 50.00"><br>
+    </fieldset>
+    <button type="submit">Enviar Pedido</button>
+    <button type="reset">Limpar Formulário</button>
+  </form>
+  <div id="comprovante" style="display:none; margin-top:30px;"></div>
+  <script src="script.js"></script>
 </body>
 </html>
