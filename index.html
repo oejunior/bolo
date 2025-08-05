@@ -2,11 +2,30 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Bolos Docce Cheesecake</title>
+  <title>Pedido de Bolo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Formulário para Bolos</h1>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: column;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 650px;
+  }
+</style>
+<div class="container">
+
+  <h1>Fazer Pedido de Bolo</h1>
   <form id="pedidoForm">
     <fieldset>
       <legend>Dados do Cliente</legend>
@@ -71,5 +90,5 @@
   </form>
   <div id="comprovante" style="display:none; margin-top:30px;"></div>
   <script src="script.js"></script>
-</body>
+</div></body>
 </html>
