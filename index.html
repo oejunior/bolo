@@ -5,34 +5,25 @@
   <title>Pedido de Bolo</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="margin: 0; padding: 0; font-family: 'PT Sans', sans-serif; background-image: url('blurry_background.png'); background-size: cover; background-position: center;">
-<div style="max-width: 750px; margin: 40px auto; padding: 20px; background: white; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-
+<body>
 <style>
   body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'PT Sans', sans-serif;
-    background-image: url('blurry_background.png');
-    background-size: cover;
-    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: column;
   }
 
-  .page-wrapper {
-    background: white;
-    border-radius: 16px;
-    padding: 30px;
+  .container {
     width: 100%;
-    max-width: 700px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 650px;
   }
 </style>
-<div class="page-wrapper">
+<div class="container">
 
   <h1>Fazer Pedido de Bolo</h1>
   <form id="pedidoForm">
@@ -99,6 +90,5 @@
   </form>
   <div id="comprovante" style="display:none; margin-top:30px;"></div>
   <script src="script.js"></script>
-</div>
 </div></body>
 </html>
