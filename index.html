@@ -6,6 +6,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+    background-image: url('blurry_background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .page-wrapper {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+</style>
+<div class="page-wrapper">
+
   <h1>Fazer Pedido de Bolo</h1>
   <form id="pedidoForm">
     <fieldset>
@@ -71,5 +97,6 @@
   </form>
   <div id="comprovante" style="display:none; margin-top:30px;"></div>
   <script src="script.js"></script>
+</div>
 </body>
 </html>
