@@ -6,14 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bolos da Docce</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <img src="logo.png" alt="Logo Docce" style="width: 140px; display: block; margin: 20px auto;">
   <h1 style="text-align: center; color: #444; font-family: 'PT Sans', sans-serif;">Bolos da Docce</h1>
-  <div id="app">
-    <!-- Conteúdo omitido para exemplo -->
-    <div id="comprovante"></div>
+
+  <label>Nome:</label>
+  <input type="text" id="nome" />
+
+  <label>Telefone:</label>
+  <input type="text" id="telefone" />
+
+  <label>Tipo:</label>
+  <select id="tipo" onchange="mostrarEndereco()">
+    <option value="Retirada">Retirada</option>
+    <option value="Delivery">Delivery</option>
+  </select>
+
+  <div id="enderecoContainer" style="display:none">
+    <label>Rua:</label>
+    <input type="text" id="rua" />
+    <label>Número:</label>
+    <input type="text" id="numero" />
+    <label>Bairro:</label>
+    <input type="text" id="bairro" />
+    <label>Taxa de Entrega:</label>
+    <select id="taxaEntrega">
+      <option value="0">Selecione</option>
+      <option value="7">R$7</option><option value="8">R$8</option>
+      <option value="9">R$9</option><option value="10">R$10</option>
+      <option value="11">R$11</option><option value="12">R$12</option>
+      <option value="13">R$13</option><option value="14">R$14</option>
+      <option value="15">R$15</option>
+    </select>
   </div>
-  <script src="script.js"></script>
+
+  <label>Data:</label>
+  <input type="date" id="data" />
+
+  <label>Hora:</label>
+  <input type="time" id="hora" />
+
+  <label>Sabor do bolo:</label>
+  <select id="sabor" onchange="atualizarPreco()">
+    <option value="">Selecione</option>
+    <option value="Brigadeirudo">Brigadeirudo</option>
+  </select>
+
+  <label>Tamanho:</label>
+  <select id="tamanho" onchange="atualizarPreco()">
+    <option value="">Selecione</option>
+    <option value="P">Pequeno</option>
+  </select>
+
+  <label>Adiantamento (opcional):</label>
+  <input type="number" id="adiantamento" value="0"/>
+
+  <button onclick="gerarComprovante()">Gerar Comprovante</button>
+
+  <div id="comprovante"></div>
 </body>
 </html>
